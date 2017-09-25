@@ -6,9 +6,10 @@ $(document).ready(function () {
 
         jQuery.ajax({
             data: "",
-            url: "http://localhost:8080/api/messages/" + msg,
+            url: "http://localhost:8080/demo/api/messages/" + msg,
             type: "get",
             success: function (res) {
+                console.log(res);
 
                 $("#chat-window").append("<div class='content-container'>"
                         + "<p class='sender-container card-container'>" + msg + "</p>"
@@ -17,13 +18,9 @@ $(document).ready(function () {
 
                 setTimeout(function () {
                     $("#chat-window").append("<div class='content-container'>"
-                        + "<p class='response-container card-container'>" + res + "</p>"
+                        + "<p class='response-container card-container'>" + res.message + "</p>"
                         + "</div>");
                 }, 1000);
-
-
-
-
 
             }
         });

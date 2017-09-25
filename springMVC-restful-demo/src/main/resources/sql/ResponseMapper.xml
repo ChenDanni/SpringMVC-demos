@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ResponseMapper">
+  <resultMap id="BaseResultMap" type="com.bean.Response">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="request" jdbcType="VARCHAR" property="request" />
+    <result column="response" jdbcType="VARCHAR" property="response" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, request, response
+  </sql>
+  <select id="selectByMsg" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from response
+    where request like '%${msg}%'
+  </select>
+</mapper>

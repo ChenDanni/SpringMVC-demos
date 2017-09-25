@@ -1,5 +1,8 @@
 package com.controller;
 
+import com.bean.JsonResponse;
+import com.service.MainService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,10 +17,18 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping(value = "/api/messages")
 public class MainController {
 
+    @Autowired
+    MainService mainService;
+
     @RequestMapping(value = "/{message}", method = RequestMethod.GET)
-    public String getMessage(HttpServletResponse response, @PathVariable String message){
+    public JsonResponse getMessage(HttpServletResponse response, @PathVariable String message){
         response.addHeader("Access-Control-Allow-Origin","*");
-        return "hhh";
+
+        String msg = mainService.getMessage(message);
+        JsonResponse ret = new JsonResponse();
+        ret.setMessage(msg);
+
+        return ret;
     }
 
 }

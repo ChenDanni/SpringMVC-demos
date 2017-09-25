@@ -1,3 +1,4 @@
+
 body {
     background-color: #81d8d0;
 }
@@ -10,7 +11,7 @@ body {
 
 .card-container {
     border-radius: 4px;
-    box-shadow: 3px 0 6px rgba(0,0,0,0.3);
+    box-shadow: 2px 0 4px rgba(0,0,0,0.3);
     padding: 6px;
     margin-bottom: 12px;
     background-color: #FAFAFA;
@@ -27,10 +28,14 @@ body {
 }
 
 .sender-container {
+    border-radius: 8px 8px 0 8px;
+    padding:6px 10px;
     float: right;
 }
 
 .response-container {
+    border-radius: 8px 8px 8px 0;
+    padding:6px 10px;
     background-color: #81d8d0;
     color: white;
     float: left;
